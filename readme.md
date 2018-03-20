@@ -1,12 +1,9 @@
 # Charityapi.org Documentation
 
-## These Docs Are Not Complete
-
-These docs are not quite stable yet.
-
 ## Getting Started
 
 Create an account at <https://www.charityapi.org>, grab your API keys.
+The live API keys start with "live-" and the test ones begin with "test-".
 
 ## Authentication
 
