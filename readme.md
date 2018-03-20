@@ -17,6 +17,7 @@ The API expects an HTTP header of apikey="yourkeyhere" and requests of type "App
 
 ## Simple Charity Check Plan / Endpoint
 [Ruby](https://github.com/Grantimus9/charityapidocs#ruby)
+
 [Elixir](https://github.com/Grantimus9/charityapidocs#elixir)
 
 
