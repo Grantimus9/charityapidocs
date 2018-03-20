@@ -13,7 +13,14 @@ Create an account at <https://www.charityapi.org>, grab your API keys.
 The API expects an HTTP header of apikey="yourkeyhere" and requests of type "Application/JSON"
 
 
-## Ruby Example Implementation
+# Examples
+
+## Simple Charity Check Plan / Endpoint
+[Ruby](###ruby)
+[Elixir](###elixir)
+
+
+### Ruby
 
 ```ruby
   # using HTTParty Gem
@@ -33,7 +40,7 @@ The API expects an HTTP header of apikey="yourkeyhere" and requests of type "App
  end
 ```
 
-## Elixir Example Implementation
+### Elixir
 
 ```elixir
   # Using HTTPoison hex package and Jason hex package.
