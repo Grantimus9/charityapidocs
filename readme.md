@@ -3,6 +3,9 @@
 A simple API that allows you to quickly check if a given charity (by tax ID number/EIN) is listed
 on the IRS' list of charities. The IRS publishes the data in large .csv files about once a month. Charityapi.org retrieves and parses these csv files, then makes them available over an API. Charityapi.org is relied upon by tech-forward charities and companies that need to quickly check charitable status.
 
+[Charity API: Charityapi.org on Medium](https://medium.com/@grantmnelsn/charity-api-charityapi-org-723931738774)
+
+
 ## Getting Started
 
 Create an account at <https://www.charityapi.org>, grab your API keys.
