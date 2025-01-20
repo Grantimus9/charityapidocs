@@ -9,6 +9,7 @@ Install Elixir version 1.16
 Compile the docs 
 `mix docs`
 
+
 ## Adding New Content 
 
 1. Add a new .md file under "src/YourNewFile.md" 
