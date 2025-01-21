@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.36.1">
+    <meta name="project" content="CharityAPI.org API Docs v1.0.0">
+
+
+    <title>NTEE Codes — CharityAPI.org API Docs v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-QYVRUQZX.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-CD1FE177.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-HJ5ACJPS.js"></script>
+
+  </head>
+  <body class="sidebar-closed">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://www.charityapi.org" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="CharityAPI.org API Docs" />
+        </a>
+
+      <div>
+        <a href="https://www.charityapi.org" class="sidebar-projectName" translate="no">
+CharityAPI.org API Docs
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Endpoints
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of CharityAPI.org API Docs</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/USER/PROJECT/blob/main/src/NTEE_Codes.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>NTEE Codes</span>
+  </h1>
+
+<p>The National Taxonomy of Exempt Entities (NTEE) is a taxonomy designed to classify all nonprofit entities by activity type. </p><p>Nonprofits choose the most appropriate code for their activities, and the IRS provides this code in the publication 78 data (tax exempt entities). </p><p>For each organization, you will see a <code class="inline">ntee_cd</code> NTEE code field that you can then use to lookup the NTEE code for the organization. </p><h2 id="list-ntee-codes" class="section-heading">
+  <a href="#list-ntee-codes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">List NTEE Codes</span>
+</h2>
+<p>Lists all NTEE Codes observed in IRS data. Many codes do not have a title or definition. There are many NTEE codes, making this a particularly large json response. </p><h3 id="http-request" class="section-heading">
+  <a href="#http-request" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/ntee_codes</code></p><!-- tabs-open --><h3 id="curl" class="section-heading">
+  <a href="#curl" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/ntee_codes&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses </p><!-- tabs-open --><h3 id="success" class="section-heading">
+  <a href="#success" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="7074192346-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7074192346-2">[</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-3">{</span><span class="w">
+            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X900&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-3">}</span><span class="p">,</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-4">{</span><span class="w">
+            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;U99&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use this code for organizations that clearly provide science and technology research services where the major purpose is unclear enough that a more specific code cannot be accurately assigned.&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Science &amp; Technology N.E.C.&quot;</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-4">}</span><span class="p">,</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-5">{</span><span class="w">
+            </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V01&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organizations whose activities focus on influencing public policy within the Social Science Research Institutes, Services major group area. Includes a variety of activities from public education and influencing public opinion to lobbying national and state legislatures.&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alliances &amp; Advocacy&quot;</span><span class="w">
+        </span><span class="p" data-group-id="7074192346-5">}</span><span class="w">
+    </span><span class="p" data-group-id="7074192346-2">]</span><span class="w">
+</span><span class="p" data-group-id="7074192346-1">}</span><span class="w">
+</span></code></pre><!-- tabs-close --><h2 id="get-ntee-category-by-code" class="section-heading">
+  <a href="#get-ntee-category-by-code" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Get NTEE category By Code</span>
+</h2>
+<p>Get a specific NTEE category by code. </p><h3 id="http-request-1" class="section-heading">
+  <a href="#http-request-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/ntee_codes/:code</code></p><!-- tabs-open --><pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/ntee_codes/:code&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><blockquote><p>Sample response for <a href="https://api.charityapi.org/api/ntee_codes/U99">https://api.charityapi.org/api/ntee_codes/U99</a> </p></blockquote><p>Responses: </p><!-- tabs-open --><pre><code class="makeup json" translate="no"><span class="p" data-group-id="9870222877-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9870222877-2">{</span><span class="w">
+        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;U99&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use this code for organizations that clearly provide science and technology research services where the major purpose is unclear enough that a more specific code cannot be accurately assigned.&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Science &amp; Technology N.E.C.&quot;</span><span class="w">
+    </span><span class="p" data-group-id="9870222877-2">}</span><span class="w">
+</span><span class="p" data-group-id="9870222877-1">}</span></code></pre><h3 id="no-results" class="section-heading">
+  <a href="#no-results" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<blockquote><p>Returns null if there is no matching code </p></blockquote><pre><code class="makeup json" translate="no"><span class="p" data-group-id="6085816657-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p" data-group-id="6085816657-1">}</span></code></pre><!-- tabs-close -->
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="data_imports.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Data Imports
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.36.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

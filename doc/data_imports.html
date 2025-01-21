@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.36.1">
+    <meta name="project" content="CharityAPI.org API Docs v1.0.0">
+
+
+    <title>Data Imports — CharityAPI.org API Docs v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-QYVRUQZX.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-CD1FE177.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-HJ5ACJPS.js"></script>
+
+  </head>
+  <body class="sidebar-closed">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://www.charityapi.org" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="CharityAPI.org API Docs" />
+        </a>
+
+      <div>
+        <a href="https://www.charityapi.org" class="sidebar-projectName" translate="no">
+CharityAPI.org API Docs
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Endpoints
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of CharityAPI.org API Docs</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/USER/PROJECT/blob/main/src/Data_Imports.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>Data Imports</span>
+  </h1>
+
+<p>A Data Import represents a time CharityAPI.org retrieved and imported the latest data from the IRS. </p><h2 id="get-data-import-by-id" class="section-heading">
+  <a href="#get-data-import-by-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Get Data Import By ID</span>
+</h2>
+<p>Retrieve a dataimport by its ID. </p><h3 id="http-request" class="section-heading">
+  <a href="#http-request" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/dataimports/:id</code></p><!-- tabs-open --><h3 id="curl" class="section-heading">
+  <a href="#curl" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/dataimports/:id&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><h3 id="success" class="section-heading">
+  <a href="#success" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="1399649234-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1399649234-2">{</span><span class="w">
+        </span><span class="nt">&quot;completed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;crawled_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1399649234-3">[</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+        </span><span class="p" data-group-id="1399649234-3">]</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">355</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;inserted_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-09-19T00:00:00&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Import 2022-09-19&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;s3_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;s3_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;to_crawl_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1399649234-4">[</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+        </span><span class="p" data-group-id="1399649234-4">]</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-09-19T02:16:04&quot;</span><span class="w">
+    </span><span class="p" data-group-id="1399649234-2">}</span><span class="w">
+</span><span class="p" data-group-id="1399649234-1">}</span></code></pre><h3 id="data-import-in-progress" class="section-heading">
+  <a href="#data-import-in-progress" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Data Import In Progress</span>
+</h3>
+<p>If a dataimport is currently in progress, it will show <code class="inline">&quot;completed&quot;: false</code>. </p><pre><code class="makeup json" translate="no"><span class="p" data-group-id="6539790093-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6539790093-2">{</span><span class="w">
+        </span><span class="nt">&quot;completed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;crawled_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6539790093-3">[</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="w">
+        </span><span class="p" data-group-id="6539790093-3">]</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;inserted_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-09-19T00:00:00&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Import 2023-09-19&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;s3_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;s3_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;to_crawl_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6539790093-4">[</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+        </span><span class="p" data-group-id="6539790093-4">]</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-09-19T02:16:04&quot;</span><span class="w">
+    </span><span class="p" data-group-id="6539790093-2">}</span><span class="w">
+</span><span class="p" data-group-id="6539790093-1">}</span></code></pre><h3 id="no-results" class="section-heading">
+  <a href="#no-results" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="3971439403-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p" data-group-id="3971439403-1">}</span></code></pre><!-- tabs-close --><h2 id="get-recent-data-imports" class="section-heading">
+  <a href="#get-recent-data-imports" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Get Recent Data Imports</span>
+</h2>
+<p>You can also retrieve the most recent dataimports by providing the string &quot;recent&quot; instead of a dataimport ID. This will return an object with 3 keys: </p><table><thead><tr><th style="text-align: left;">Key</th><th style="text-align: left;">Description</th><th style="text-align: left;">Notes</th></tr></thead><tbody><tr><td style="text-align: left;">in_progress_dataimport</td><td style="text-align: left;">The data import currently in progress, if any</td><td style="text-align: left;">null if none in progress</td></tr><tr><td style="text-align: left;">most_recent_complete_dataimport</td><td style="text-align: left;">The most recent data import that's complete</td><td style="text-align: left;">N/A</td></tr><tr><td style="text-align: left;">most_recent_dataimport</td><td style="text-align: left;">The most recent data import regardless of status</td><td style="text-align: left;">N/A</td></tr></tbody></table><p>The same data import may appear in multiple keys; for example if it is both the most recent and complete data import.</p><h3 id="http-request-1" class="section-heading">
+  <a href="#http-request-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/dataimports/recent</code></p><!-- tabs-open --><h3 id="curl-1" class="section-heading">
+  <a href="#curl-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/dataimports/recent&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><blockquote><p>Returns a list of dataimports. </p></blockquote><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><pre><code class="makeup json" translate="no"><span class="p" data-group-id="9192777728-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-2">{</span><span class="w">
+        </span><span class="nt">&quot;in_progress_dataimport&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;most_recent_complete_dataimport&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-3">{</span><span class="w">
+            </span><span class="nt">&quot;completed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;crawled_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-4">[</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+            </span><span class="p" data-group-id="9192777728-4">]</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">357</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;inserted_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-17T04:00:00&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Import 2022-10-17&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;s3_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;s3_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;to_crawl_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-5">[</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+            </span><span class="p" data-group-id="9192777728-5">]</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-17T07:51:42&quot;</span><span class="w">
+        </span><span class="p" data-group-id="9192777728-3">}</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;most_recent_dataimport&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-6">{</span><span class="w">
+            </span><span class="nt">&quot;completed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;crawled_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-7">[</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+            </span><span class="p" data-group-id="9192777728-7">]</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">357</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;inserted_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-17T04:00:00&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Import 2022-10-17&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;s3_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;s3_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redacted&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;to_crawl_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9192777728-8">[</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo1.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo2.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo3.csv&quot;</span><span class="p">,</span><span class="w">
+                </span><span class="s2">&quot;https://www.irs.gov/pub/irs-soi/eo4.csv&quot;</span><span class="w">
+            </span><span class="p" data-group-id="9192777728-8">]</span><span class="p">,</span><span class="w">
+            </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-17T07:51:42&quot;</span><span class="w">
+        </span><span class="p" data-group-id="9192777728-6">}</span><span class="w">
+    </span><span class="p" data-group-id="9192777728-2">}</span><span class="w">
+</span><span class="p" data-group-id="9192777728-1">}</span></code></pre><!-- tabs-close -->
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="public_charity_check.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Public Charity Check
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="ntee_codes.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+NTEE Codes
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.36.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

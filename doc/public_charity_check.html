@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.36.1">
+    <meta name="project" content="CharityAPI.org API Docs v1.0.0">
+
+
+    <title>Public Charity Check — CharityAPI.org API Docs v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-QYVRUQZX.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-CD1FE177.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-HJ5ACJPS.js"></script>
+
+  </head>
+  <body class="sidebar-closed">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://www.charityapi.org" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="CharityAPI.org API Docs" />
+        </a>
+
+      <div>
+        <a href="https://www.charityapi.org" class="sidebar-projectName" translate="no">
+CharityAPI.org API Docs
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Endpoints
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of CharityAPI.org API Docs</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/USER/PROJECT/blob/main/src/Public_Charity_Check.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>Public Charity Check</span>
+  </h1>
+
+<p>This public charity check makes it simple to confirm whether or not a tax ID number is a real charity and tax deductible. Send the API the tax ID number and it will respond with a simple true/false indicating that organization's current status. This endpoint is commonly used to reconfirm your list of organizations are still in good standing with the IRS and donations are still tax deductible.</p><p><a href="https://www.charityapi.org/post/charity-data-api">Blog Post Introducing the simple Charity Check API</a></p><h3 id="http-request" class="section-heading">
+  <a href="#http-request" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/public_charity_check/:ein</code></p><h3 id="query-parameters" class="section-heading">
+  <a href="#query-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Query Parameters</span>
+</h3>
+<table><thead><tr><th style="text-align: left;">Parameter</th><th style="text-align: left;">Default</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;">ein</td><td style="text-align: left;">N/A</td><td style="text-align: left;">The Tax ID number / Employer Identification Number</td></tr></tbody></table><!-- tabs-open --><h3 id="curl" class="section-heading">
+  <a href="#curl" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/public_charity_check/:ein&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses:</p><!-- tabs-open --><h3 id="public-charity" class="section-heading">
+  <a href="#public-charity" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Public Charity</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="7695833390-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7695833390-2">{</span><span class="w">
+        </span><span class="nt">&quot;public_charity&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;474262060&quot;</span><span class="w">
+    </span><span class="p" data-group-id="7695833390-2">}</span><span class="w">
+</span><span class="p" data-group-id="7695833390-1">}</span></code></pre><h3 id="not-public-charity" class="section-heading">
+  <a href="#not-public-charity" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Not Public Charity</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="7781934919-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7781934919-2">{</span><span class="w">
+        </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;public_charity&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p" data-group-id="7781934919-2">}</span><span class="w">
+</span><span class="p" data-group-id="7781934919-1">}</span></code></pre><!-- tabs-close -->
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="organizations.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Organizations
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="data_imports.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Data Imports
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.36.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

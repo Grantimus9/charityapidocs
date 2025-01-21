@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.36.1">
+    <meta name="project" content="CharityAPI.org API Docs v1.0.0">
+
+
+    <title>Authentication — CharityAPI.org API Docs v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-QYVRUQZX.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-CD1FE177.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-HJ5ACJPS.js"></script>
+
+  </head>
+  <body class="sidebar-closed">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://www.charityapi.org" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="CharityAPI.org API Docs" />
+        </a>
+
+      <div>
+        <a href="https://www.charityapi.org" class="sidebar-projectName" translate="no">
+CharityAPI.org API Docs
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Endpoints
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of CharityAPI.org API Docs</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/USER/PROJECT/blob/main/src/Authentication.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>Authentication</span>
+  </h1>
+
+<p>CharityAPI.org expects all API requests to be authenticated by passing your API key in the http 'apikey' header. </p><p>Example: </p><!-- tabs-open --><h3 id="curl" class="section-heading">
+  <a href="#curl" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations/search/food&quot; \
+</span><span class="">  -H &quot;apikey: keyhere&quot;
+</span></code></pre><!-- tabs-close --><table><thead><tr><th style="text-align: left;">HTTP Header</th><th style="text-align: left;">Value</th></tr></thead><tbody><tr><td style="text-align: left;">apikey</td><td style="text-align: left;">Your API Key</td></tr></tbody></table><p>When you <a href="https://api.charityapi.org/signup">register</a> you will receive 2 API Keys; one live (prefixed with <code class="inline">live-</code>) and one test (prefixed with <code class="inline">test-</code>). Calls with the test key will return validly-shaped but bogus data; you can use it in development but we don't recommend using it for your test suite or CI. For your test suite, please mock or stub out the responses from this API.</p><p>API Key Examples:</p><table><thead><tr><th style="text-align: left;">Key Type</th><th style="text-align: left;">Example Value</th></tr></thead><tbody><tr><td style="text-align: left;">Live</td><td style="text-align: left;">live-PKDv6IZSgxXEJzGnQLIdDsObIpr1PpA5NQd0VbKh2JZaaTkxsH1X5eRcbsyEiOVhPWOOYVoD3zTrXVyO</td></tr><tr><td style="text-align: left;">Test</td><td style="text-align: left;">test-aaRkxsH1X5eRcbsyEiOVhPWOOYVoD3zTrXVyOPKDv6IZSgxXEJzGnQLIdDsObIpr0PpA5NQz0VbQh2JZ</td></tr></tbody></table>
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="main.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Introduction
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="organizations.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Organizations
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.36.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

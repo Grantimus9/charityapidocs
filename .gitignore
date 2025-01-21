@@ -8,7 +8,8 @@
 /deps/
 
 # Where third-party dependencies like ExDoc output generated docs.
-/doc/
+# For this project, we actually want this to be checked in as its the star of the show
+# /docs/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
 /.fetch

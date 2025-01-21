@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.36.1">
+    <meta name="project" content="CharityAPI.org API Docs v1.0.0">
+
+
+    <title>Organizations — CharityAPI.org API Docs v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-QYVRUQZX.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-CD1FE177.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-HJ5ACJPS.js"></script>
+
+  </head>
+  <body class="sidebar-closed">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://www.charityapi.org" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="CharityAPI.org API Docs" />
+        </a>
+
+      <div>
+        <a href="https://www.charityapi.org" class="sidebar-projectName" translate="no">
+CharityAPI.org API Docs
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Endpoints
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of CharityAPI.org API Docs</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/USER/PROJECT/blob/main/src/Organizations.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>Organizations</span>
+  </h1>
+
+<h2 id="list-nonprofit-organizations" class="section-heading">
+  <a href="#list-nonprofit-organizations" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">List Nonprofit Organizations</span>
+</h2>
+<h3 id="http-request" class="section-heading">
+  <a href="#http-request" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/organizations?since=YYYY-MM-DD</code></p><h3 id="query-parameters" class="section-heading">
+  <a href="#query-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Query Parameters</span>
+</h3>
+<table><thead><tr><th style="text-align: left;">Parameter</th><th style="text-align: left;">Default</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;">since</td><td style="text-align: left;">N/A</td><td style="text-align: left;">Required. You can query for all organizations that have been added to the IRS Publication 78 Business Master File since a given date by providing the date in the &quot;since&quot; query param. The parameter must be an iso8601 formatted date in the format YYYY-MM-DD. For example, use &quot;2025-01-30&quot; to query all organizations added after January 30th, 2025. Because the IRS updates date only once a month, we recommend only querying for new updates once a week and a lookback period of a month to ensure your database receives all incremental additions. Each new monthly publication includes approximately 7,000 new organizations, but each month varies.</td></tr></tbody></table><p>Examples: </p><!-- tabs-open --><h3 id="curl" class="section-heading">
+  <a href="#curl" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations?since=2025-01-01&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><h3 id="success" class="section-heading">
+  <a href="#success" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="5966152028-1">{</span><span class="w">
+  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5966152028-2">[</span><span class="p" data-group-id="5966152028-3">{</span><span class="w">
+     </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20006-1631&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;tax_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;subsection&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1629 K ST NW STE 300&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DC&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;sort_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ruling&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;revenue_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;pf_filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ntee_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K30&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MEANS DATABASE INC&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ico&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;% MARIA ROSE BELDING&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;foundation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;474262060&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;deductibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WASHINGTON&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;acct_pd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p" data-group-id="5966152028-3">}</span><span class="p">,</span><span class="w"> 
+  </span><span class="p" data-group-id="5966152028-4">{</span><span class="w">
+     </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20006-1631&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;tax_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;subsection&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123 Main Street&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DC&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;sort_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ruling&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;revenue_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;pf_filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ntee_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K30&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fake Organization&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ico&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;% Executive Director Name&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;foundation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;deductibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WASHINGTON&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;acct_pd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p" data-group-id="5966152028-4">}</span><span class="w">
+  </span><span class="p" data-group-id="5966152028-2">]</span><span class="w">
+</span><span class="p" data-group-id="5966152028-1">}</span><span class="w">  </span></code></pre><h3 id="no-results" class="section-heading">
+  <a href="#no-results" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="5962405148-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5962405148-2">[</span><span class="p" data-group-id="5962405148-2">]</span><span class="w">
+</span><span class="p" data-group-id="5962405148-1">}</span></code></pre><!-- tabs-close --><h2 id="get-nonprofit-organization-by-ein" class="section-heading">
+  <a href="#get-nonprofit-organization-by-ein" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Get Nonprofit Organization By EIN</span>
+</h2>
+<p>This endpoint retrieves a single nonprofit entry from the currently listed nonprofits in the IRS's Business Master File, indicating they are a nonprofit. This will return both charities and other nonprofits, like political organizations and insurance organizations. If a request for an EIN returns no results, that means the EIN is not a currently valid nonprofit with the IRS. </p><h3 id="http-request-1" class="section-heading">
+  <a href="#http-request-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/organizations/:ein</code></p><h3 id="query-parameters-1" class="section-heading">
+  <a href="#query-parameters-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Query Parameters</span>
+</h3>
+<table><thead><tr><th style="text-align: left;">Parameter</th><th style="text-align: left;">Default</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;">ein</td><td style="text-align: left;">N/A</td><td style="text-align: left;">The Tax ID number / Employer Identification Number</td></tr></tbody></table><!-- tabs-open --><h3 id="curl-1" class="section-heading">
+  <a href="#curl-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations/:ein&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>If the EIN / tax ID number matches a nonprofit that's currently listed in the IRS database, it will be returned:</p><p>Responses</p><!-- tabs-open --><h3 id="success-1" class="section-heading">
+  <a href="#success-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="0361658159-1">{</span><span class="w">
+  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0361658159-2">{</span><span class="w">
+     </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20006-1631&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;tax_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;subsection&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1629 K ST NW STE 300&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DC&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;sort_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ruling&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;revenue_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;pf_filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ntee_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K30&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MEANS DATABASE INC&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;income_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ico&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;% MARIA ROSE BELDING&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;foundation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;474262060&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;deductibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WASHINGTON&quot;</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;asset_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">&quot;acct_pd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p" data-group-id="0361658159-2">}</span><span class="w">
+</span><span class="p" data-group-id="0361658159-1">}</span><span class="w">  </span></code></pre><h3 id="no-results-1" class="section-heading">
+  <a href="#no-results-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="7610255520-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p" data-group-id="7610255520-1">}</span></code></pre><!-- tabs-close --><h2 id="organization-schema" class="section-heading">
+  <a href="#organization-schema" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Organization Schema</span>
+</h2>
+<p>The special <code class="inline">/api/organizations/schema</code> endpoint returns a minimal data dictionary, or field explanation for the organization attributes. This endpoint is designed to make it a little easier to integrate and understand the data elements as a developer, but is not suitable for displaying information to users in production. This data is straight from the <a href="https://www.irs.gov/pub/irs-soi/eo_info.pdf">IRS explanation</a>. </p><h3 id="http-request-2" class="section-heading">
+  <a href="#http-request-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/organizations/schema</code></p><!-- tabs-open --><h3 id="curl-2" class="section-heading">
+  <a href="#curl-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations/schema&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><h3 id="success-2" class="section-heading">
+  <a href="#success-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="3266306461-1">{</span><span class="w">
+    </span><span class="nt">&quot;acct_pd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Accounting Period.</span><span class="se">\n</span><span class="s2">        This designates the accounting period or fiscal year ending date (Jan - Dec) of the organization (MM).&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description Not Available&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization Grouping, based on the following split:</span><span class="se">\n</span><span class="s2">        1: Central - This code is used if the organization is a central type organization (no group exemption) of a National,</span><span class="se">\n</span><span class="s2">        Regional or Geographic grouping of organizations.</span><span class="se">\n</span><span class="s2">        2: Intermediate - This code is used if the organization is an intermediate organization (no group exemption) of a</span><span class="se">\n</span><span class="s2">        National, Regional or Geographic grouping of organizations (such as a state headquarters of a national</span><span class="se">\n</span><span class="s2">        organization).</span><span class="se">\n</span><span class="s2">        3: Independent - This code is used if the organization is an independent organization or an independent auxiliary</span><span class="se">\n</span><span class="s2">        (i.e., not affiliated with a National, Regional, or Geographic grouping of organizations).</span><span class="se">\n</span><span class="s2">        6: Central - This code is used if the organization is a parent (group ruling) and is not a church or 501(c)(1)</span><span class="se">\n</span><span class="s2">        organization.</span><span class="se">\n</span><span class="s2">        7: Intermediate - This code is used if the organization is a group exemption intermediate organization of a National,</span><span class="se">\n</span><span class="s2">        Regional or Geographic grouping of organizations.</span><span class="se">\n</span><span class="s2">        8: Central - This code is used if the organization is a parent (group ruling) and is a church or 501(c)(1) organization.</span><span class="se">\n</span><span class="s2">        9: Subordinate - This code is used if the organization is a subordinate in a group ruling.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;asset_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asset Amount.</span><span class="se">\n</span><span class="s2">        Asset Amount is an amount from the most recent Form 990 series return filed by the organization. Asset Amount is the</span><span class="se">\n</span><span class="s2">        Book Value Total Assets End of Year - PART X Balance Sheet Line 16 Col. (B) shown on the Form 990. This field is also</span><span class="se">\n</span><span class="s2">        from PART II, Line 25, Col. (B) EOY on Form 990EZ and PART II, Line 16, Col. (b) on Form 990PF. This field is dollars</span><span class="se">\n</span><span class="s2">        only.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;asset_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asset Codes relate to the book value amount of assets shown on the most recent Form 990 series return filed by the</span><span class="se">\n</span><span class="s2">        organization.</span><span class="se">\n</span><span class="s2">        ASSET CODE/INCOME CODE TABLE</span><span class="se">\n</span><span class="s2">        Code Description($)</span><span class="se">\n</span><span class="s2">        0 0</span><span class="se">\n</span><span class="s2">        1 1 to 9,999</span><span class="se">\n</span><span class="s2">        2 10,000 to 24,999</span><span class="se">\n</span><span class="s2">        3 25,000 to 99,999</span><span class="se">\n</span><span class="s2">        4 100,000 to 499,999</span><span class="se">\n</span><span class="s2">        5 500,000 to 999,999</span><span class="se">\n</span><span class="s2">        6 1,000,000 to 4,999,999</span><span class="se">\n</span><span class="s2">        7 5,000,000 to 9,999,999</span><span class="se">\n</span><span class="s2">        8 10,000,000 to 49,999,999</span><span class="se">\n</span><span class="s2">        9 50,000,000 to greater&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;city&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Subsection Codes are the codes shown under section 501(c) of the Internal Revenue Code of 1986, which define the</span><span class="se">\n</span><span class="s2">        category under which an organization may be exempt. A table of subsection and classification codes (which reflects a</span><span class="se">\n</span><span class="s2">        further breakdown of the Internal Revenue Code subsections) can be found in the section entitled &#39;Table of EO Subsection</span><span class="se">\n</span><span class="s2">        and Classification Codes&#39; (https://www.irs.gov/pub/irs-soi/eo_info.pdf). One to four different classification codes may be present.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;deductibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deductibility Code signifies whether contributions made to an organization are deductible.</span><span class="se">\n</span><span class="s2">        1: Contributions are deductible.</span><span class="se">\n</span><span class="s2">        2: Contributions are not deductible.</span><span class="se">\n</span><span class="s2">        4: Contributions are deductible by treaty (foreign organizations).&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Employer Identification Number, or Tax ID Number&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This indicates the primary return(s) the organization is required to file.</span><span class="se">\n</span><span class="s2">        01 990 (all other) or 990EZ return</span><span class="se">\n</span><span class="s2">        02 990 - Required to file Form 990-N - Income less than $25,000 per year</span><span class="se">\n</span><span class="s2">        03 990 - Group return</span><span class="se">\n</span><span class="s2">        04 990 - Required to file Form 990-BL, Black Lung Trusts</span><span class="se">\n</span><span class="s2">        06 990 - Not required to file (church)</span><span class="se">\n</span><span class="s2">        07 990 - Government 501(c)(1)</span><span class="se">\n</span><span class="s2">        13 990 - Not required to file (religious organization)</span><span class="se">\n</span><span class="s2">        14 990 - Not required to file (instrumentalities of states or political subdivisions)</span><span class="se">\n</span><span class="s2">        00 990 - Not required to file (all other)&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;foundation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation Code.</span><span class="se">\n</span><span class="s2">        00 All organizations except 501(c)(3)</span><span class="se">\n</span><span class="s2">        02 Private operating foundation exempt from paying excise taxes on investment income</span><span class="se">\n</span><span class="s2">        03 Private operating foundation (other)</span><span class="se">\n</span><span class="s2">        04 Private non-operating foundation</span><span class="se">\n</span><span class="s2">        09 Suspense</span><span class="se">\n</span><span class="s2">        10 Church 170(b)(1)(A)(i)</span><span class="se">\n</span><span class="s2">        11 School 170(b)(1)(A)(ii)</span><span class="se">\n</span><span class="s2">        12 Hospital or medical research organization 170(b)(1)(A)(iii)</span><span class="se">\n</span><span class="s2">        13 Organization which operates for benefit of college or university and is owned or operated by a governmental</span><span class="se">\n</span><span class="s2">        unit 170(b)(1)(A)(iv)</span><span class="se">\n</span><span class="s2">        14 Governmental unit 170(b)(1)(A)(v)</span><span class="se">\n</span><span class="s2">        15 Organization which receives a substantial part of its support from a governmental unit or the general public</span><span class="se">\n</span><span class="s2">        170(b)(1)(A)(vi)</span><span class="se">\n</span><span class="s2">        16 Organization that normally receives no more than one-third of its support from gross investment income and</span><span class="se">\n</span><span class="s2">        unrelated business income and at the same time more than one-third of its support from</span><span class="se">\n</span><span class="s2">        contributions, fees, and gross receipts related to exempt purposes. 509(a)(2)</span><span class="se">\n</span><span class="s2">        17 Organizations operated solely for the benefit of and in conjunction with organizations described in 10 through</span><span class="se">\n</span><span class="s2">        16 above. 509(a)(3)</span><span class="se">\n</span><span class="s2">        18 Organization organized and operated to test for public safety 509(a)(4)</span><span class="se">\n</span><span class="s2">        21 509(a)(3) Type I</span><span class="se">\n</span><span class="s2">        22 509(a)(3) Type II</span><span class="se">\n</span><span class="s2">        23 509(a)(3) Type III functionally integrated</span><span class="se">\n</span><span class="s2">        24 509(a)(3) Type III not functionally integrated&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is a four-digit IRS-internal number assigned to central/parent organizations holding group exemption letters.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;ico&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In Care Of - the person to whom correspondence should be addressed.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;income_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Income Amount is a computer generated amount from the most recent Form 990 series return filed by the organization.</span><span class="se">\n</span><span class="s2">        Income Amount is computer generated using PART I, Total Revenue Line 12 and adding &#39;back in&#39; the expense items, i.e.</span><span class="se">\n</span><span class="s2">        Line 6b (Rental Expenses) shown on the Form 990 return. On Form 990EZ it is generated using PART I, Line 9 and</span><span class="se">\n</span><span class="s2">        adding &#39;back in&#39; the expense items, i.e. Line 5b (Cost or Other Basis Expenses). Income Amount for Form 990PF is</span><span class="se">\n</span><span class="s2">        generated using Part I, Line 10b (Cost of Goods) and adding Part I, Line 12, Col. (A) (Total Revenue Col. A) and Part IV,</span><span class="se">\n</span><span class="s2">        Line 1, Col. (G) (Cost or Other Basis). This field is dollars only.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;income_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Income Codes relate to the amount of income shown on the most recent Form 990 series return filed by the organization.</span><span class="se">\n</span><span class="s2">        ASSET CODE/INCOME CODE TABLE</span><span class="se">\n</span><span class="s2">        Code Description($)</span><span class="se">\n</span><span class="s2">        0 0</span><span class="se">\n</span><span class="s2">        1 1 to 9,999</span><span class="se">\n</span><span class="s2">        2 10,000 to 24,999</span><span class="se">\n</span><span class="s2">        3 25,000 to 99,999</span><span class="se">\n</span><span class="s2">        4 100,000 to 499,999</span><span class="se">\n</span><span class="s2">        5 500,000 to 999,999</span><span class="se">\n</span><span class="s2">        6 1,000,000 to 4,999,999</span><span class="se">\n</span><span class="s2">        7 5,000,000 to 9,999,999</span><span class="se">\n</span><span class="s2">        8 10,000,000 to 49,999,999</span><span class="se">\n</span><span class="s2">        9 50,000,000 to greater&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The name of the organization&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;ntee_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;National Taxonomy of Exempt Entities Code.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;  This defines the type of organization as follows:</span><span class="se">\n</span><span class="s2">        Code Description</span><span class="se">\n</span><span class="s2">        1 Corporation</span><span class="se">\n</span><span class="s2">        2 Trust</span><span class="se">\n</span><span class="s2">        3 Co-operative</span><span class="se">\n</span><span class="s2">        4 Partnership</span><span class="se">\n</span><span class="s2">        5 Association&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;pf_filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1 990-PF return</span><span class="se">\n</span><span class="s2">        0 No 990-PF return&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;revenue_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Amount from Form 990, Part 1, Line 12, or Part 1, Line 9, of Form 990EZ.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;ruling&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is the month and year (YYYYMM) on a ruling or determination letter recognizing the organization&#39;s exempt status.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;sort_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sort Name Line is another name under which the organization does business. Also used for trade names, chapter names,</span><span class="se">\n</span><span class="s2">        or local numbers for subordinate organizations of group rulings. Check this field in addition to the name field when confirming identity.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The EO Status Code defines the type of exemption held by the organization. The following is a list of EO status codes and</span><span class="se">\n</span><span class="s2">        their definitions included in these files:</span><span class="se">\n</span><span class="s2">         Code Description</span><span class="se">\n</span><span class="s2">        01 Unconditional Exemption</span><span class="se">\n</span><span class="s2">        02 Conditional Exemption</span><span class="se">\n</span><span class="s2">        12 Trust described in section 4947(a)(2) of the IR Code</span><span class="se">\n</span><span class="s2">        25 Organization terminating its private foundation status under section 507(b)(1)(B) of the Code&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Street Address Line 1&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;subsection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Subsection Codes are the codes shown under section 501(c) of the Internal Revenue Code of 1986, which define the category under which an organization may be exempt. A table of subsection and classification codes (which reflects a further breakdown of the Internal Revenue Code subsections) can be found in the section entitled &#39;Table of EO Subsection and Classification Codes&#39; (https://www.irs.gov/pub/irs-soi/eo_info.pdf). One to four different classification codes may be present.&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;tax_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is the tax period of the latest return filed (YYYYMM).&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zip code&quot;</span><span class="w">
+</span><span class="p" data-group-id="3266306461-1">}</span><span class="w">
+</span></code></pre><!-- tabs-close --><h2 id="search-nonprofits-and-charities" class="section-heading">
+  <a href="#search-nonprofits-and-charities" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Search Nonprofits and Charities</span>
+</h2>
+<p>Search the ~ 2 million public charities by search term. This endpoint requires at least 3 characters to return results, and will return the top results ordered by relevance and charity size. </p><p>This searches the nonprofit &quot;name&quot; and &quot;sort_name&quot; fields. Organizations whose charitable status has lapsed will not appear in search results.</p><p>You may optionally filter results further by providing &quot;city&quot; and &quot;state&quot; parameters. </p><h3 id="http-request-3" class="section-heading">
+  <a href="#http-request-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/organizations/search/:term</code></p><h3 id="query-parameters-2" class="section-heading">
+  <a href="#query-parameters-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Query Parameters</span>
+</h3>
+<table><thead><tr><th style="text-align: left;">Parameter</th><th style="text-align: left;">Default</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;">term</td><td style="text-align: left;">N/A</td><td style="text-align: left;">Search term. URL-encoded.</td></tr><tr><td style="text-align: left;">city</td><td style="text-align: left;">null</td><td style="text-align: left;">Filter results to only this city. This field is mildly typo tolerant, and requires at least two characters be provided.</td></tr><tr><td style="text-align: left;">state</td><td style="text-align: left;">null</td><td style="text-align: left;">Filter results to only this state code, e.g. &quot;AZ&quot; or &quot;IA&quot;. Use &quot;PR&quot; for Puerto Rico.</td></tr></tbody></table><!-- tabs-open --><h3 id="curl-3" class="section-heading">
+  <a href="#curl-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations/search/:term&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><h3 id="success-3" class="section-heading">
+  <a href="#success-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="8002375992-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8002375992-2">[</span><span class="w">
+        </span><span class="p" data-group-id="8002375992-3">{</span><span class="w">
+         </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20006-1631&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;tax_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201712</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;subsection&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1629 K ST NW STE 300&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DC&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;sort_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;ruling&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201602</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;revenue_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;pf_filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;ntee_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K30&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MEANS DATABASE INC&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;income_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;income_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">81553</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;ico&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;% MARIA ROSE BELDING&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;foundation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;filing_req_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;474262060&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;deductibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WASHINGTON&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;asset_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;asset_amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31245</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;acct_pd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+       </span><span class="p" data-group-id="8002375992-3">}</span><span class="p">,</span><span class="w">
+       </span><span class="p" data-group-id="8002375992-4">{</span><span class="p" data-group-id="8002375992-4">}</span><span class="p">,</span><span class="w">
+       </span><span class="p" data-group-id="8002375992-5">{</span><span class="p" data-group-id="8002375992-5">}</span><span class="w">
+    </span><span class="p" data-group-id="8002375992-2">]</span><span class="w">
+</span><span class="p" data-group-id="8002375992-1">}</span></code></pre><h3 id="no-results-2" class="section-heading">
+  <a href="#no-results-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="3555933387-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3555933387-2">[</span><span class="p" data-group-id="3555933387-2">]</span><span class="w">
+</span><span class="p" data-group-id="3555933387-1">}</span></code></pre><!-- tabs-close --><h2 id="autocomplete" class="section-heading">
+  <a href="#autocomplete" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Autocomplete</span>
+</h2>
+<section role="note" class="admonition neutral"><h4 class="admonition-title neutral">Notice</h4><p>The autocomplete endpoint is only available to paying accounts.</p></section><p>The autocomplete endpoint is designed to power your autocomplete (typeahead) features. This endpoint searches only the name field of all organizations, and is typo-tolerant, making it perfect for enabling your users to search for a charity by name.</p><p>You must provide at least 3 characters before results will be returned.</p><p>If you require more information about a charity, use the organizations endpoint: <code class="inline">GET https://api.charityapi.org/api/organizations/:ein</code></p><h3 id="http-request-4" class="section-heading">
+  <a href="#http-request-4" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">HTTP Request</span>
+</h3>
+<p><code class="inline">GET https://api.charityapi.org/api/organizations/autocomplete/:term</code></p><h3 id="query-parameters-3" class="section-heading">
+  <a href="#query-parameters-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Query Parameters</span>
+</h3>
+<table><thead><tr><th style="text-align: left;">Parameter</th><th style="text-align: left;">Default</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;">term</td><td style="text-align: left;">N/A</td><td style="text-align: left;">Search term. URL-encoded.</td></tr></tbody></table><!-- tabs-open --><h3 id="curl-4" class="section-heading">
+  <a href="#curl-4" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">curl</span>
+</h3>
+<pre><code class="makeup shell" translate="no"><span class="">curl &quot;https://api.charityapi.org/api/organizations/autocomplete/:term&quot; \
+</span><span class="">  -H &quot;apikey: apikeyhere&quot;
+</span></code></pre><!-- tabs-close --><p>Responses: </p><!-- tabs-open --><h3 id="success-4" class="section-heading">
+  <a href="#success-4" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Success</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="3828780112-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3828780112-2">[</span><span class="w">
+        </span><span class="p" data-group-id="3828780112-3">{</span><span class="w">
+         </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MEANS DATABASE INC&quot;</span><span class="p">,</span><span class="w">
+         </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;474262060&quot;</span><span class="w">
+       </span><span class="p" data-group-id="3828780112-3">}</span><span class="p">,</span><span class="w">
+       </span><span class="p" data-group-id="3828780112-4">{</span><span class="w">
+        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MEANS OF GRACE&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">&quot;ein&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;825057778&quot;</span><span class="w">
+       </span><span class="p" data-group-id="3828780112-4">}</span><span class="p">,</span><span class="w">
+       </span><span class="p" data-group-id="3828780112-5">{</span><span class="p" data-group-id="3828780112-5">}</span><span class="w">
+    </span><span class="p" data-group-id="3828780112-2">]</span><span class="w">
+</span><span class="p" data-group-id="3828780112-1">}</span></code></pre><h3 id="no-results-3" class="section-heading">
+  <a href="#no-results-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">No Results</span>
+</h3>
+<pre><code class="makeup json" translate="no"><span class="p" data-group-id="8706892961-1">{</span><span class="w">
+    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8706892961-2">[</span><span class="p" data-group-id="8706892961-2">]</span><span class="w">
+</span><span class="p" data-group-id="8706892961-1">}</span></code></pre><!-- tabs-close -->
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="authentication.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Authentication
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="public_charity_check.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Public Charity Check
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.36.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
