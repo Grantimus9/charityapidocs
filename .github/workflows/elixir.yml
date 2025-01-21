@@ -35,5 +35,11 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
+      
     - name: Compile Docs # The only thing this repo does is generate a static site to serve.
       run: mix docs
+
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v9.1.4
+      with: 
+        add: 'doc'
