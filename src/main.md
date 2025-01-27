@@ -6,4 +6,5 @@ Here you'll find the full reference for the CharityAPI.org API, including authen
 links to more information where interesting. If you have any questions or requests for API support, please feel free to [reach out](https://www.charityapi.org/contact).
 
 Base URL: `https://api.charityapi.org`
+
 Authentication: Required; provide your key in the 'apikey' header 

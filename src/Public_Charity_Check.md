@@ -37,7 +37,7 @@ Responses:
 }
 ```
 
-### Not Public Charity
+### Not a Public Charity
 ```json
 {
     "data": {
