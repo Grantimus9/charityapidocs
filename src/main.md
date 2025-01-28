@@ -9,5 +9,4 @@ Base URL: `https://api.charityapi.org`
 
 Authentication: Required; provide your key in the 'apikey' header 
 
-
 [Contact](https://www.charityapi.org/contact)
