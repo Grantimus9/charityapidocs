@@ -1,6 +1,21 @@
 defmodule Charityapidocs.MixProject do
   use Mix.Project
 
+  # Sidebar groups. Order here is the order in the sidebar; each page belongs to one group.
+  @guides [
+    "src/main.md",
+    "src/Authentication.md",
+    "src/Errors.md",
+    "src/MCP.md"
+  ]
+  @endpoints [
+    "src/Organizations.md",
+    "src/Public_Charity_Check.md",
+    "src/Keys.md",
+    "src/Data_Imports.md",
+    "src/NTEE_Codes.md"
+  ]
+
   def project do
     [
       app: :charityapidocs,
@@ -19,15 +34,9 @@ defmodule Charityapidocs.MixProject do
         logo: "images/logo_square.png",
         formatters: ["html"],
         # source_beam: "src",
-        extra_section: "Endpoints",
-        extras: [
-          "src/main.md",
-          "src/Authentication.md",
-          "src/Organizations.md",
-          "src/Public_Charity_Check.md",
-          "src/Data_Imports.md",
-          "src/NTEE_Codes.md"
-        ],
+        extra_section: "Documentation",
+        extras: @guides ++ @endpoints,
+        groups_for_extras: [Guides: @guides, Endpoints: @endpoints],
         api_reference: false,
         main: "main"
       ]
@@ -55,7 +64,14 @@ defmodule Charityapidocs.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
+      docs: ["docs", &copy_static/1],
       "assets.deploy": ["docs"]
     ]
+  end
+
+  # Copies machine-readable files (openapi.yaml, llms.txt) from static/ into
+  # the generated site so they are served from the docs root.
+  defp copy_static(_args) do
+    File.cp_r!("static", "doc")
   end
 end

@@ -1,0 +1,376 @@
+openapi: 3.1.0
+info:
+  title: CharityAPI.org API
+  version: "1.0.0"
+  description: |
+    US nonprofit and charity data from the IRS Business Master File: lookups by EIN,
+    search, autocomplete, public charity checks, NTEE codes and data import status.
+    Full documentation: https://docs.charityapi.org
+  contact:
+    url: https://www.charityapi.org/contact
+servers:
+  - url: https://api.charityapi.org
+security:
+  - bearerAuth: []
+  - apikeyHeader: []
+tags:
+  - name: Organizations
+  - name: Public Charity Check
+  - name: Keys
+  - name: NTEE Codes
+  - name: Data Imports
+paths:
+  /api/organizations:
+    get:
+      tags: [Organizations]
+      operationId: listOrganizations
+      summary: List nonprofit organizations added since a date
+      description: >-
+        Organizations added to the IRS Business Master File since the given date.
+        The IRS updates its data monthly, so querying weekly with a one-month lookback is recommended.
+      parameters:
+        - name: since
+          in: query
+          required: true
+          description: Date in YYYY-MM-DD format.
+          schema: { type: string, format: date, example: "2025-01-30" }
+      responses:
+        "200":
+          description: Organizations added since the date.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: "#/components/schemas/Organization" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "422": { $ref: "#/components/responses/Unprocessable" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/organizations/schema:
+    get:
+      tags: [Organizations]
+      operationId: getOrganizationSchema
+      summary: Organization data dictionary
+      description: A minimal data dictionary explaining each organization attribute, taken from the IRS file layout.
+      responses:
+        "200":
+          description: Map of attribute name to explanation.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: { type: string }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/organizations/{ein}:
+    get:
+      tags: [Organizations]
+      operationId: getOrganizationByEin
+      summary: Get a nonprofit organization by EIN
+      description: >-
+        Returns the organization if it is currently listed with the IRS as a nonprofit.
+        Returns data null if it is not.
+      parameters:
+        - $ref: "#/components/parameters/Ein"
+      responses:
+        "200":
+          description: The organization, or null if the EIN is not a current nonprofit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    oneOf:
+                      - $ref: "#/components/schemas/Organization"
+                      - type: "null"
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/organizations/search/{term}:
+    get:
+      tags: [Organizations]
+      operationId: searchOrganizations
+      summary: Search nonprofits and charities
+      description: >-
+        Searches the name and sort_name of public charities. Requires at least 3 characters.
+        Results are ordered by relevance and charity size.
+      parameters:
+        - name: term
+          in: path
+          required: true
+          description: Search term, URL-encoded.
+          schema: { type: string, minLength: 3 }
+        - name: city
+          in: query
+          required: false
+          description: Only return organizations in this city.
+          schema: { type: string }
+        - name: state
+          in: query
+          required: false
+          description: Only return organizations in this state code, e.g. AZ. Use PR for Puerto Rico.
+          schema: { type: string, example: AZ }
+      responses:
+        "200":
+          description: Matching organizations.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: "#/components/schemas/Organization" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/organizations/autocomplete/{term}:
+    get:
+      tags: [Organizations]
+      operationId: autocompleteOrganizations
+      summary: Autocomplete organization names
+      description: >-
+        Name-only search for typeahead features. Requires at least 3 characters and a key with
+        the autocomplete permission; other keys receive INSUFFICIENT_PERMISSIONS.
+      parameters:
+        - name: term
+          in: path
+          required: true
+          description: Partial organization name, URL-encoded.
+          schema: { type: string, minLength: 3 }
+      responses:
+        "200":
+          description: Matching organization names and EINs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name: { type: string, example: MEANS DATABASE INC }
+                        ein: { type: string, example: "474262060" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "403": { $ref: "#/components/responses/Forbidden" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/public_charity_check/{ein}:
+    get:
+      tags: [Public Charity Check]
+      operationId: publicCharityCheck
+      summary: Check whether an EIN is a public charity
+      description: Returns true or false for whether the EIN is a current public charity with tax-deductible contributions.
+      parameters:
+        - $ref: "#/components/parameters/Ein"
+      responses:
+        "200":
+          description: The check result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      public_charity: { type: boolean }
+                      ein: { type: string, example: "474262060" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/keys/self:
+    get:
+      tags: [Keys]
+      operationId: getCurrentKey
+      summary: Get the current API key
+      description: Returns the masked identifier and request count of the API key making the request. Requires an API key; OAuth tokens are not supported.
+      responses:
+        "200":
+          description: Key details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      identifier:
+                        type: string
+                        description: The key with its middle characters masked.
+                      request_count: { type: integer }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/ntee_codes:
+    get:
+      tags: [NTEE Codes]
+      operationId: listNteeCodes
+      summary: List NTEE codes
+      description: All NTEE codes observed in IRS data. Many codes have no title or definition.
+      responses:
+        "200":
+          description: NTEE codes.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: "#/components/schemas/NteeCode" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/ntee_codes/{code}:
+    get:
+      tags: [NTEE Codes]
+      operationId: getNteeCode
+      summary: Get an NTEE code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          description: NTEE code, e.g. K30.
+          schema: { type: string, example: K30 }
+      responses:
+        "200":
+          description: The NTEE code.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: "#/components/schemas/NteeCode" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /api/dataimports/{id}:
+    get:
+      tags: [Data Imports]
+      operationId: getDataImport
+      summary: Get a data import
+      description: A data import is one run in which CharityAPI.org retrieved the latest IRS data. The completed field is false while it is in progress.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: The data import.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: "#/components/schemas/DataImport" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Your API key, or an OAuth access token. Recommended.
+    apikeyHeader:
+      type: apiKey
+      in: header
+      name: apikey
+      description: Legacy header for your API key. Still supported.
+  parameters:
+    Ein:
+      name: ein
+      in: path
+      required: true
+      description: Tax ID number / Employer Identification Number.
+      schema: { type: string, example: "474262060" }
+  responses:
+    Unauthorized:
+      description: Missing or invalid credentials (MISSING_AUTHENTICATION, INVALID_API_KEY, INVALID_BEARER_TOKEN, INVALID_BEARER_FORMAT, INVALID_OAUTH_TOKEN, OAUTH_AUTHORIZATION_REVOKED, REFRESH_TOKEN_NOT_ALLOWED).
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+    Forbidden:
+      description: The key lacks permission for this endpoint (INSUFFICIENT_PERMISSIONS).
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+    NotFound:
+      description: Not found (HTTP_404). The body also contains data null.
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+    Unprocessable:
+      description: A parameter was malformed (INVALID_FORMAT).
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+    RateLimited:
+      description: Rate limit exceeded (RATE_LIMITED).
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [message, code]
+          properties:
+            message: { type: string }
+            code: { type: string, example: RATE_LIMITED }
+            details: { type: object, additionalProperties: true }
+        data:
+          type: "null"
+    NteeCode:
+      type: object
+      properties:
+        code: { type: string, example: K30 }
+        title: { type: [string, "null"] }
+        definition: { type: [string, "null"] }
+    DataImport:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        completed: { type: boolean }
+        crawled_urls: { type: array, items: { type: string } }
+        to_crawl_urls: { type: array, items: { type: string } }
+        inserted_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+    Organization:
+      type: object
+      description: An IRS Business Master File record. Call /api/organizations/schema for field explanations.
+      properties:
+        ein: { type: string, example: "474262060" }
+        name: { type: string }
+        sort_name: { type: [string, "null"] }
+        ico: { type: [string, "null"] }
+        street: { type: string }
+        city: { type: string }
+        state: { type: string }
+        zip: { type: string }
+        ntee_cd: { type: [string, "null"] }
+        subsection: { type: integer }
+        classification: { type: integer }
+        affiliation: { type: integer }
+        group: { type: integer }
+        organization: { type: integer }
+        deductibility: { type: integer }
+        foundation: { type: integer }
+        activity: { type: integer }
+        status: { type: integer }
+        ruling: { type: integer, description: YYYYMM }
+        tax_period: { type: integer, description: YYYYMM }
+        acct_pd: { type: integer }
+        asset_cd: { type: integer }
+        asset_amt: { type: integer }
+        income_cd: { type: integer }
+        income_amt: { type: integer }
+        revenue_amt: { type: integer }
+        filing_req_cd: { type: integer }
+        pf_filing_req_cd: { type: integer }
