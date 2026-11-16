@@ -1,0 +1,31 @@
+# CharityAPI.org
+
+> CharityAPI.org is a REST API and MCP server for US nonprofit and charity data from the IRS Business Master File. Look up an organization by EIN, search ~2 million public charities by name, check whether an EIN is a current tax-deductible public charity, and browse NTEE classification codes.
+
+Base URL: https://api.charityapi.org
+Authentication: send your API key as `Authorization: Bearer <key>`. The legacy `apikey` header is also accepted. Get a free key at https://api.charityapi.org/signup.
+Errors use one JSON shape: `{"error": {"message": "...", "code": "...", "details": {}}}`.
+
+## Docs
+
+- [Introduction](https://docs.charityapi.org/main.html): base URL, authentication summary and rate limits
+- [Authentication](https://docs.charityapi.org/authentication.html): Bearer and apikey headers, live vs test keys
+- [Errors](https://docs.charityapi.org/errors.html): error envelope and the stable error codes
+- [Organizations](https://docs.charityapi.org/organizations.html): list new organizations, get by EIN, search, autocomplete and the data dictionary
+- [Public Charity Check](https://docs.charityapi.org/public_charity_check.html): true/false check that an EIN is a current public charity
+- [API Keys](https://docs.charityapi.org/keys.html): inspect the key making the request
+- [Data Imports](https://docs.charityapi.org/data_imports.html): status of the monthly IRS data imports
+- [NTEE Codes](https://docs.charityapi.org/ntee_codes.html): look up nonprofit activity classification codes
+
+## MCP
+
+- [MCP Server](https://docs.charityapi.org/mcp.html): connect agents at `https://api.charityapi.org/mcp` using OAuth 2.0 or a Bearer API key; 11 tools covering search, lookup, charity checks, NTEE codes and data imports
+
+## Machine-readable
+
+- [OpenAPI specification](https://docs.charityapi.org/openapi.yaml): OpenAPI 3.1 description of the REST API
+
+## Optional
+
+- [Contact and support](https://www.charityapi.org/contact)
+- [Signup](https://api.charityapi.org/signup)
